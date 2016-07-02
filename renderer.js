@@ -45,10 +45,12 @@ http://www.hacksparrow.com/tcp-socket-programming-in-node-js.html.) */
 
 var net = require('net');
 
+var server_address = '192.168.33.11';
+
 var client = new net.Socket();
-client.connect(1337, '127.0.0.1', function() {
+client.connect(1337, server_address, function() {
 	console.log('Connected');
-	client.write('Hello, server! Love, Client.');
+	client.write('Hello, server! Love, Client.\r\n');
 });
 
 client.on('data', function(data) {
